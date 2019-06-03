@@ -9,6 +9,7 @@
         <form method="POST" action="#">
           <input
             id="email"
+            v-model="email"
             type="email"
             name="email"
             title="email"
@@ -18,6 +19,7 @@
           />
           <input
             id="password"
+            v-model="password"
             type="password"
             name="password"
             title="password"
@@ -35,11 +37,7 @@
             <a class="btn btn-link level-right" href="#">Forgot Password?</a>
           </div>
 
-          <button
-            type="submit"
-            class="btn btn-primary"
-            @click.prevent="generateToken"
-          >
+          <button type="submit" class="btn btn-primary" @click.prevent="loggin">
             Login
           </button>
         </form>
@@ -54,28 +52,26 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   layout: 'login',
   data() {
     return {
-      token: {}
+      email: '',
+      password: ''
     }
   },
   methods: {
-    generateToken() {
-      this.$axios
-        .post('/api/v1/login', {
-          email: 'violet@mail.com',
-          password: 'pass'
-        })
-        .then(res => {
-          this.token = res.data
-          // eslint-disable-next-line no-console
-          console.log(res)
-        })
-        .catch(err => {
-          this.token = 'error' + err.message
-        })
+    ...mapGetters('user', ['isTokenValid']),
+    async loggin() {
+      const credential = {
+        email: this.email,
+        password: this.password
+      }
+      await this.$store.dispatch('user/getToken', credential)
+      if (this.isTokenValid) {
+        this.$router.push('/')
+      }
     }
   }
 }

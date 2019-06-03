@@ -27,6 +27,7 @@
 import Logo from '~/components/Logo.vue'
 
 export default {
+  middleware: 'authenticated',
   components: {
     Logo
   }
