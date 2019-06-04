@@ -1,5 +1,10 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav
+    ref="navbar"
+    class="navbar is-light"
+    role="navigation"
+    aria-label="main navigation"
+  >
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
         <img
@@ -25,45 +30,31 @@
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
         <a class="navbar-item">
-          Home
+          Dashboard
         </a>
 
         <a class="navbar-item">
           Documentation
         </a>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More
-          </a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              About
-            </a>
-            <a class="navbar-item">
-              Jobs
-            </a>
-            <a class="navbar-item">
-              Contact
-            </a>
-            <hr class="navbar-divider" />
-            <a class="navbar-item">
-              Report an issue
-            </a>
-          </div>
-        </div>
       </div>
 
       <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
-              Log in
-            </a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-item">
+            <figure class="image is-32x32">
+              <img
+                src="~assets/images/julian-alexander-22273-unsplash.jpg"
+                alt="avatar"
+                class="is-rounded"
+              />
+            </figure>
+          </div>
+          <a href="#" class="navbar-link">Hello, John</a>
+          <div class="navbar-dropdown">
+            <a href="#" class="navbar-item">Profile</a>
+            <a href="#" class="navbar-item">Dashboard</a>
+            <hr class="navbar-divider" />
+            <a href="#" class="navbar-item">Log out</a>
           </div>
         </div>
       </div>
@@ -72,7 +63,11 @@
 </template>
 
 <script>
-export default {}
+export default {
+  mounted() {
+    console.warn('the ref is the ref' + this.$refs.navbar.offsetHeight)
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>

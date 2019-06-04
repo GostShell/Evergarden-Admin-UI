@@ -29,7 +29,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~plugins/element-ui'],
 
   /*
    ** Nuxt.js modules
@@ -62,6 +62,7 @@ export default {
    ** Build configuration
    */
   build: {
+    vendor: ['element-ui'],
     postcss: {
       preset: {
         features: {

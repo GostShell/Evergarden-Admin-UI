@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="before-nuxt">
     <nuxt />
   </div>
 </template>
@@ -15,6 +15,24 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+html,
+body,
+#__nuxt,
+#__layout,
+#before-nuxt,
+#after-nuxt {
+  height: 100%;
+}
+
+#after-nav {
+  /* height: 96.3%; */
+  height: calc(100% - 40px);
+}
+
+#asidebar {
+  padding-bottom: 0 !important;
 }
 
 *,
