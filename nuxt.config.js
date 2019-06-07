@@ -19,17 +19,21 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: '~/components/utils/ProgressBar.vue',
 
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    'element-ui/lib/theme-chalk/reset.css',
+    'element-ui/lib/theme-chalk/index.css',
+    'nprogress/nprogress.css'
+  ],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~plugins/element-ui', '~plugins/axios'],
 
   /*
    ** Nuxt.js modules
@@ -62,6 +66,7 @@ export default {
    ** Build configuration
    */
   build: {
+    vendor: ['element-ui'],
     postcss: {
       preset: {
         features: {

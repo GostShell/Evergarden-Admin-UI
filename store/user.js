@@ -68,5 +68,8 @@ export const getters = {
       }
     }
     return false
+  },
+  getToken: state => {
+    return state.token
   }
 }
