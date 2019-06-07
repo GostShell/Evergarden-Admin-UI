@@ -5,7 +5,9 @@
     </el-header>
 
     <el-container>
-      <el-aside> </el-aside>
+      <el-aside>
+        <editormenu />
+      </el-aside>
 
       <el-main>
         <nuxt />
@@ -15,12 +17,15 @@
 </template>
 
 <script>
-import Navbar from '~/components/NavBar.vue'
+import Navbar from '~/components/Nav/NavBar.vue'
+import Editormenu from '~/components/SidebarMenu/EditorMenu.vue'
+
 export default {
   layout: 'dashboard',
-  middleware: 'authenticated',
+  middleware: ['authenticated'],
   components: {
-    Navbar
+    Navbar,
+    Editormenu
   }
 }
 </script>

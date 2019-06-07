@@ -1,65 +1,94 @@
 <template>
-  <div id="login">
-    <div class="login-card">
-      <div class="card-title">
-        <h1>Please Sign In</h1>
-      </div>
-
-      <div class="content">
-        <form method="POST" action="#">
-          <input
-            id="email"
-            v-model="email"
-            type="email"
-            name="email"
-            title="email"
-            placeholder="Email"
-            required
-            autofocus
-          />
-          <input
-            id="password"
-            v-model="password"
-            type="password"
-            name="password"
-            title="password"
-            placeholder="Password"
-            required
-          />
-
-          <div class="level options">
-            <div class="checkbox level-left">
-              <input id="checkbox" type="checkbox" class="regular-checkbox" />
-              <label for="checkbox"></label>
-              <span>Remember me</span>
-            </div>
-
-            <a class="btn btn-link level-right" href="#">Forgot Password?</a>
-          </div>
-
-          <button type="submit" class="btn btn-primary" @click.prevent="loggin">
-            Login
-          </button>
-        </form>
-      </div>
+  <div>
+    <div
+      v-show="loading"
+      class="is-overlay columns is-centered is-vcentered spinner-overlay"
+    >
+      <orbit-spinner
+        :animation-duration="1000"
+        :size="180"
+        :color="'#00B89C'"
+        class="column is-half"
+      />
     </div>
-    <footer>
-      <div class="credit">
-        <p>Photo by Jack Cain on Unsplash</p>
+    <div v-show="loading === false" id="login">
+      <div class="login-card">
+        <div class="card-title">
+          <h1>Please Sign In</h1>
+        </div>
+
+        <div class="content">
+          <form method="POST" action="#">
+            <input
+              id="email"
+              v-model="email"
+              type="email"
+              name="email"
+              title="email"
+              placeholder="Email"
+              required
+              autofocus
+            />
+            <input
+              id="password"
+              v-model="password"
+              type="password"
+              name="password"
+              title="password"
+              placeholder="Password"
+              required
+            />
+
+            <!-- <div class="level options">
+              <div class="checkbox level-left">
+                <input id="checkbox" type="checkbox" class="regular-checkbox" />
+                <label for="checkbox"></label>
+                <span>Remember me</span>
+              </div>
+
+              <a class="btn btn-link level-right" href="#">Forgot Password?</a>
+            </div> -->
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              @click.prevent="loggin"
+            >
+              Login
+            </button>
+          </form>
+        </div>
       </div>
-    </footer>
+      <!-- <footer>
+        <div class="credit">
+          <p>Photo by Jack Cain on Unsplash</p>
+        </div>
+      </footer> -->
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import OrbitSpinner from '@/components/Spinner/OrbitSpinner'
+
 export default {
   layout: 'login',
+  components: {
+    OrbitSpinner
+  },
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      loading: true
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.loading = false
+      /// this.$nuxt.$loading.finish()
+    })
   },
   methods: {
     ...mapGetters('user', ['isTokenValid']),
@@ -219,5 +248,8 @@ footer {
   bottom: 1px;
   right: 5px;
   color: #fafafa;
+}
+.spinner-overlay {
+  background-color: #202020;
 }
 </style>

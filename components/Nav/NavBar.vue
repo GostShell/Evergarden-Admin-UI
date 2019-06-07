@@ -29,9 +29,7 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item">
-          Dashboard
-        </a>
+        <nuxt-link class="navbar-item" to="/dashboard">Dashboard</nuxt-link>
 
         <a class="navbar-item">
           Documentation

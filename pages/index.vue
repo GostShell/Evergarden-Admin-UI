@@ -1,10 +1,10 @@
 <template>
-  <div class="">Dashboard</div>
+  <div></div>
 </template>
 
 <script>
 export default {
-  layout: 'dashboard'
+  middleware: 'authenticated'
 }
 </script>
 
