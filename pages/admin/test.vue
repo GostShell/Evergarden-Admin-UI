@@ -1,10 +1,10 @@
 <template>
-  <div></div>
+  <div>Hello</div>
 </template>
 
 <script>
 export default {
-  layout: 'dashboard'
+  layou: 'login'
 }
 </script>
 

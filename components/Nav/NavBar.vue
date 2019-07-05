@@ -63,7 +63,7 @@
 <script>
 export default {
   mounted() {
-    console.warn('the ref is the ref' + this.$refs.navbar.offsetHeight)
+    // console.warn('the ref is the ref' + this.$refs.navbar.offsetHeight)
   }
 }
 </script>

@@ -1,7 +1,7 @@
 import pkg from './package'
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
 
   /*
    ** Headers of the page
@@ -43,7 +43,7 @@ export default {
     '@nuxtjs/axios',
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma',
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
     '@nuxtjs/proxy'
   ],
   /*
@@ -51,6 +51,9 @@ export default {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    proxy: true,
+    baseURL: 'http://localhost:8080/'
+    // browserBaseURL: 'http://localhost:8080/'
   },
 
   proxy: {
