@@ -99,7 +99,7 @@ export default {
       }
       await this.$store.dispatch('user/getToken', credential)
       if (this.isTokenValid) {
-        this.$router.push('/dashboard')
+        this.$router.push('/admin/dashboard')
       }
     }
   }
