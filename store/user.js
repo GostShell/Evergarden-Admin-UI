@@ -4,7 +4,7 @@ export const namespaced = true
 
 export const state = () => {
   return {
-    id: 0,
+    id: '',
     lastname: '',
     firstname: '',
     avatarUrl: '',

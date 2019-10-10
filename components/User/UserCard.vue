@@ -6,15 +6,7 @@
 
     <div class="user-profile">
       <div class="box-center">
-        <pan-thumb
-          image="user.avatar"
-          :height="'100px'"
-          :width="'100px'"
-          :hoverable="false"
-        >
-          <div>Hello</div>
-          <!-- {{ user.role }} -->
-        </pan-thumb>
+        <avatar></avatar>
       </div>
       <div class="box-center">
         <!-- <div class="user-name text-center">{{ user.name }}</div> -->
@@ -55,7 +47,7 @@
                 :checked="hasRole(role.id)"
                 name="role"
               >
-                {{ formatRole(role.roleValue) }}
+                {{ formatRole(role.role) }}
               </el-checkbox>
             </el-checkbox-group>
           </el-form-item>
@@ -70,12 +62,12 @@
 </template>
 
 <script>
-import PanThumb from '@/components/User/PanThumb'
+import Avatar from '@/components/User/Avatar'
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   components: {
-    PanThumb
+    Avatar
   },
   data() {
     return {
