@@ -3,7 +3,6 @@
     <div slot="header" class="clearfix">
       <span>About me</span>
     </div>
-
     <div class="user-profile">
       <div class="box-center">
         <avatar></avatar>
@@ -23,15 +22,44 @@
         </div>
         <div class="user-bio-section-body">
           <div class="text-muted">
-            <el-input v-model="email" placeholder="Email"></el-input>
-            <el-input v-model="firstname" placeholder="Firstname"></el-input>
-            <el-input v-model="lastname" placeholder="Lastname"></el-input>
-            <el-input v-model="pseudo" placeholder="Pseudo"></el-input>
-            <el-input
-              v-model="password"
-              type="password"
-              placeholder="Password"
-            ></el-input>
+            <el-form ref="form" :model="form" label-width="5em">
+              <el-form-item label="Email">
+                <el-input
+                  v-model="email"
+                  placeholder="Email"
+                  class="input-medium"
+                ></el-input>
+              </el-form-item>
+              <el-form-item label="Firstname">
+                <el-input
+                  v-model="firstname"
+                  placeholder="Firstname"
+                  class="input-medium"
+                ></el-input>
+              </el-form-item>
+              <el-form-item label="Lastname">
+                <el-input
+                  v-model="lastname"
+                  placeholder="Lastname"
+                  class="input-medium"
+                ></el-input>
+              </el-form-item>
+              <el-form-item label="Pseudo">
+                <el-input
+                  v-model="pseudo"
+                  placeholder="Pseudo"
+                  class="input-medium"
+                ></el-input>
+              </el-form-item>
+              <el-form-item label="Password"
+                ><el-input
+                  v-model="password"
+                  type="password"
+                  placeholder="Password"
+                  class="input-medium"
+                ></el-input
+              ></el-form-item>
+            </el-form>
           </div>
         </div>
       </div>
@@ -128,6 +156,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.input-medium {
+  width: 25em;
+}
+
 .box-center {
   margin: 0 auto;
   display: table;
