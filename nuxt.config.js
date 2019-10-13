@@ -33,7 +33,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~plugins/element-ui', '~plugins/axios'],
+  plugins: ['@/plugins/element-ui', '~plugins/axios'],
 
   /*
    ** Nuxt.js modules
@@ -62,11 +62,13 @@ export default {
     }
   },
 
+  buildModules: ['@nuxt/typescript-build'],
+
+
   /*
    ** Build configuration
    */
   build: {
-    vendor: ['element-ui'],
     postcss: {
       preset: {
         features: {

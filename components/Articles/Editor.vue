@@ -7,7 +7,7 @@
 
 <script>
 import Editor from '@tinymce/tinymce-vue'
-import Loader from '@/services/utils/progress-loader.js'
+import Loader from '@/project/services/utils/progress-loader.js'
 
 export default {
   middleware: 'init-progress-bar',
