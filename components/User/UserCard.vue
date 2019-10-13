@@ -7,13 +7,9 @@
       <div class="user-profile">
         <div class="box-center">
           <avatar></avatar>
-          <test></test>
         </div>
         <div class="box-center">
-          <!-- <div class="user-name text-center">{{ user.name }}</div> -->
-          <div class="user-role text-center text-muted">
-            <!-- {{ user.role | uppercaseFirst }} -->
-          </div>
+          <div class="user-role text-center text-muted"></div>
         </div>
       </div>
 
@@ -28,28 +24,28 @@
               <el-form ref="form" :model="form" label-width="5em">
                 <el-form-item label="Email">
                   <el-input
-                    v-model="email"
+                    v-model="aboutMe.email"
                     placeholder="Email"
                     class="input-medium"
                   ></el-input>
                 </el-form-item>
                 <el-form-item label="Firstname">
                   <el-input
-                    v-model="firstname"
+                    v-model="aboutMe.firstname"
                     placeholder="Firstname"
                     class="input-medium"
                   ></el-input>
                 </el-form-item>
                 <el-form-item label="Lastname">
                   <el-input
-                    v-model="lastname"
+                    v-model="aboutMe.lastname"
                     placeholder="Lastname"
                     class="input-medium"
                   ></el-input>
                 </el-form-item>
                 <el-form-item label="Pseudo">
                   <el-input
-                    v-model="pseudo"
+                    v-model="aboutMe.pseudo"
                     placeholder="Pseudo"
                     class="input-medium"
                   ></el-input>
@@ -135,23 +131,21 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Avatar from '@/components/User/Avatar'
-import Test from '@/components/User/Test'
 import { mapGetters, mapMutations } from 'vuex'
+import Vue from 'vue'
+/* import { AboutMe } from '@/project/domain/profile/AboutMe' */
+import { AboutMeMapper } from '@/project/mapper/AboutMeMapper'
 
-export default {
+export default Vue.extend({
   components: {
-    Avatar,
-    Test
+    Avatar
   },
   data() {
     return {
-      firstname: '',
-      lastname: '',
-      email: '',
+      aboutMe: {},
       avatar: '',
-      pseudo: '',
       previousPass: '',
       newPass: '',
       confirmPass: '',
@@ -164,10 +158,7 @@ export default {
   },
   mounted() {
     const data = this.getInfo()
-    this.firstname = data.firstname
-    this.lastname = data.lastname
-    this.email = data.email
-    this.pseudo = data.pseudo
+    this.aboutMe = AboutMeMapper.mapToAboutMe(data)
     this.password = data.password
     this.form.nodeRoles = this.getAllRoles()
     this.activeRoles = this.getActiveRoles()
@@ -203,7 +194,7 @@ export default {
       return role.replace('ROLE_', '')
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
