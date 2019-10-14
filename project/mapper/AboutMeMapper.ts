@@ -7,7 +7,8 @@ export class AboutMeMapper {
     email: 'email',
     firstname: 'firstname',
     lastname: 'lastname',
-    pseudo: 'pseudo'
+    pseudo: 'pseudo',
+    avatar: 'avatar'
   }
 
   public static mapToAboutMe(source: Object): AboutMe {

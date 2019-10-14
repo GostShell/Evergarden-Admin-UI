@@ -145,7 +145,6 @@ export default Vue.extend({
   data() {
     return {
       aboutMe: {},
-      avatar: '',
       previousPass: '',
       newPass: '',
       confirmPass: '',

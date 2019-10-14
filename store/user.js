@@ -1,9 +1,11 @@
 import jwtDecode from 'jwt-decode'
+import { AboutMe} from '@/project/domain/profile/AboutMe'
 
 export const namespaced = true
 
 export const state = () => {
   return {
+    aboutMe: {},
     id: '',
     lastname: '',
     firstname: '',

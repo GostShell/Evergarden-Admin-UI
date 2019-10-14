@@ -1,14 +1,16 @@
 export class AboutMe {
-  private _email: string;
-  private _firstname: string;
-  private _lastname: string;
-  private _pseudo: string;
+  private _email: string
+  private _firstname: string
+  private _lastname: string
+  private _pseudo: string
+  private _avatar: string
 
-  public constructor(email: string, firstname: string, lastname: string, pseudo: string) {
-    this._email = email;
-    this._firstname = firstname;
-    this._lastname = lastname;
-    this._pseudo = pseudo;
+  public constructor(email: string, firstname: string, lastname: string, pseudo: string, avatar: string) {
+    this._email = email
+    this._firstname = firstname
+    this._lastname = lastname
+    this._pseudo = pseudo
+    this._avatar = avatar
   }
 
   set email(value: string) {
