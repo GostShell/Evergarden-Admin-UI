@@ -1,5 +1,5 @@
 module.exports = {
-  root: true,
+  root: false,
   env: {
     browser: true,
     node: true
@@ -9,8 +9,11 @@ module.exports = {
   },
   extends: [
     '@nuxtjs',
+    "plugin:vue/base",
+    "plugin:vue/recommended",
     'plugin:nuxt/recommended',
     'plugin:prettier/recommended',
+    '@nuxtjs/eslint-config-typescript',
     'prettier',
     'prettier/vue'
   ],

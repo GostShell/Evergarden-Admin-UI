@@ -1,5 +1,6 @@
 import jwtDecode from 'jwt-decode'
-import { AboutMe} from '@/project/domain/profile/AboutMe'
+// import { AboutMe } from '@/project/domain/profile/AboutMe'
+import { UserApi } from '@/project/services/api/UserApi'
 
 export const namespaced = true
 
@@ -58,11 +59,9 @@ export const mutations = {
 
 export const actions = {
   getToken({ commit, dispatch }, { email, password }) {
-    return this.$axios
-      .post('api/v1/login', {
-        email: email,
-        password: password
-      })
+    const api = new UserApi(this.$axios)
+    return api
+      .auth(email, password)
       .then(res => {
         const decoded = jwtDecode(res.data.token)
         commit('SET_TOKEN', res.data.token)
@@ -106,7 +105,7 @@ export const actions = {
         lastname: state.lastname,
         pseudo: state.pseudo,
         email: state.email,
-        password: password,
+        password,
         roles: state.roles,
         id: state.id
       })

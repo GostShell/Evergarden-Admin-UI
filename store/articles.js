@@ -29,8 +29,8 @@ export const actions = {
     return this.$axios
       .post('/api/v1/private/post', {
         body: content,
-        title: title,
-        author: author
+        title,
+        author
       })
       .then(res => {
         context.commit('SET_CONTENT', res.data.body)
